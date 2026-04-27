@@ -7,199 +7,460 @@
 <html>
 
 <head>
-	<title>Vishesh Dab</title>
+	<title>Vishesh Dab | Senior Java Developer</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="description" content="Vishesh Dab - Senior Java Developer with 5+ years expertise in JVM Stack, Spring Boot, Microservices, and Full-Stack development." />
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
-
 	<link rel="stylesheet" href="assets/css/main.css" />
 	<noscript>
 		<link rel="stylesheet" href="assets/css/noscript.css" />
 	</noscript>
+	<style>
+		/* ============================================
+		   PORTFOLIO ENHANCEMENTS
+		============================================ */
 
+		/* Stats bar */
+		.stats-bar {
+			display: flex;
+			gap: 2rem;
+			justify-content: center;
+			flex-wrap: wrap;
+			margin: 2rem 0 0;
+			padding: 1.5rem 2rem;
+			background: rgba(255, 255, 255, 0.04);
+			border-radius: 12px;
+			border: 1px solid rgba(255, 255, 255, 0.07);
+		}
+		.stat-item { text-align: center; }
+		.stat-number {
+			font-size: 2rem;
+			font-weight: 900;
+			line-height: 1;
+			margin-bottom: 0.3rem;
+			color: #fff;
+		}
+		.stat-label {
+			font-size: 0.68rem;
+			opacity: 0.45;
+			text-transform: uppercase;
+			letter-spacing: 0.12em;
+		}
+
+		/* Section headers */
+		.section-header {
+			text-align: center;
+			margin: 2.5rem 0 2rem;
+		}
+		.section-header h2 {
+			font-size: clamp(1.5rem, 3vw, 2rem) !important;
+			margin-bottom: 0.4rem;
+		}
+		.section-header .section-sub {
+			font-size: 0.72rem;
+			opacity: 0.4;
+			letter-spacing: 0.15em;
+			text-transform: uppercase;
+		}
+
+		/* Skill rows */
+		.skill-row { margin-bottom: 1.8rem; }
+		.skill-row-label {
+			font-size: 0.68rem;
+			text-transform: uppercase;
+			letter-spacing: 0.15em;
+			opacity: 0.4;
+			margin-bottom: 0.8rem;
+			padding-bottom: 0.4rem;
+			border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+		}
+		.skills-grid {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 1rem;
+		}
+		.skill-item {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 0.5rem;
+			padding: 0.9rem 1.1rem;
+			background: rgba(255, 255, 255, 0.04);
+			border: 1px solid rgba(255, 255, 255, 0.08);
+			border-radius: 10px;
+			transition: all 0.25s ease;
+			min-width: 85px;
+		}
+		.skill-item:hover {
+			background: rgba(255, 255, 255, 0.09);
+			border-color: rgba(255, 255, 255, 0.2);
+			transform: translateY(-3px);
+		}
+		.skill-item img {
+			width: 38px;
+			height: 38px;
+			object-fit: contain;
+		}
+		.skill-item span {
+			font-size: 0.72rem;
+			color: rgba(255, 255, 255, 0.75);
+			font-weight: 500;
+			text-align: center;
+			white-space: nowrap;
+		}
+
+		/* Timeline */
+		.timeline {
+			position: relative;
+			padding-left: 2rem;
+			margin-bottom: 1rem;
+		}
+		.timeline::before {
+			content: '';
+			position: absolute;
+			left: 0;
+			top: 6px;
+			bottom: 0;
+			width: 2px;
+			background: linear-gradient(180deg, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.03) 100%);
+		}
+		.timeline-item {
+			position: relative;
+			margin-bottom: 2.5rem;
+			padding-left: 1.5rem;
+		}
+		.timeline-item::before {
+			content: '';
+			position: absolute;
+			left: -2rem;
+			top: 8px;
+			width: 10px;
+			height: 10px;
+			border-radius: 50%;
+			background: rgba(255, 255, 255, 0.9);
+			box-shadow: 0 0 0 4px rgba(255,255,255,0.08);
+		}
+		.timeline-meta {
+			display: flex;
+			align-items: center;
+			gap: 0.75rem;
+			margin-bottom: 0.6rem;
+			flex-wrap: wrap;
+		}
+		.timeline-meta h3 {
+			margin: 0;
+			font-size: 1.05rem;
+		}
+		.timeline-company {
+			font-size: 0.72rem;
+			font-weight: 700;
+			letter-spacing: 0.1em;
+			text-transform: uppercase;
+			opacity: 0.5;
+		}
+		.timeline-period {
+			font-size: 0.7rem;
+			opacity: 0.35;
+			background: rgba(255,255,255,0.05);
+			padding: 2px 9px;
+			border-radius: 20px;
+			border: 1px solid rgba(255,255,255,0.08);
+		}
+		.timeline-desc {
+			font-size: 0.88rem;
+			opacity: 0.72;
+			line-height: 1.75;
+			margin-top: 0.5rem;
+		}
+
+		/* Tech tags */
+		.tech-tags { margin: 0.6rem 0; }
+		.tech-tag {
+			display: inline-block;
+			font-size: 0.68rem;
+			padding: 3px 9px;
+			border-radius: 20px;
+			background: rgba(255,255,255,0.05);
+			border: 1px solid rgba(255,255,255,0.1);
+			color: rgba(255,255,255,0.65);
+			margin: 2px 2px 2px 0;
+			font-weight: 500;
+			letter-spacing: 0.04em;
+		}
+
+		/* Intro */
+		#intro h1 { font-size: clamp(2rem, 5vw, 3.2rem) !important; }
+		.intro-role {
+			font-size: clamp(1rem, 2.5vw, 1.3rem);
+			opacity: 0.85;
+			margin-bottom: 0.4rem;
+		}
+		.intro-stack {
+			font-size: 0.78rem;
+			opacity: 0.45;
+			letter-spacing: 0.15em;
+			text-transform: uppercase;
+			margin-bottom: 2rem;
+		}
+
+		/* About photo */
+		.about-photo {
+			border-radius: 50%;
+			display: block;
+			margin: 0 auto 1.5rem;
+		}
+
+		@media (max-width: 767px) {
+			.skill-item { min-width: 72px; padding: 0.7rem 0.6rem; }
+			.stats-bar { gap: 1.2rem; padding: 1.2rem; }
+			.stat-number { font-size: 1.6rem; }
+			.timeline { padding-left: 1.5rem; }
+		}
+	</style>
 </head>
 
 <body class="is-preload">
 
-	<!-- Wrapper -->
 	<div id="wrapper" class="fade-in">
 
 		<!-- Intro -->
 		<div id="intro">
-			<h1>Hi, I am Vishesh Dab<br />
-			</h1>
-			<p style="font-size: 30px;">A Java Developer.</p>
+			<h1>Vishesh Dab</h1>
+			<p class="intro-role">Senior Java Developer</p>
+			<p class="intro-stack">JVM &nbsp;·&nbsp; Microservices &nbsp;·&nbsp; Full-Stack &nbsp;·&nbsp; AI</p>
 			<ul class="actions">
-				<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
+				<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Explore</a></li>
 			</ul>
 		</div>
 
 		<!-- Header -->
-		<header id="header" class="fw-light">
-			<a class="logo">My Portfolio</a>
+		<header id="header">
+			<a class="logo">Portfolio</a>
 		</header>
 
 		<!-- Nav -->
 		<nav id="nav">
-			<ul class="links">
-			</ul>
+			<ul class="links"></ul>
 			<ul class="icons">
-				<li><a href="https://www.linkedin.com/in/vishesh-dab-955859132/" class="icon brands fa-linkedin"><span
-							class="label">linkedin</span></a></li>
-				<li><a href="https://github.com/Vishesh-96" class="icon brands fa-github"><span
-							class="label">GitHub</span></a></li>
+				<li><a href="https://www.linkedin.com/in/vishesh-dab-955859132/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+				<li><a href="https://github.com/Vishesh-96" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
 			</ul>
 		</nav>
 
 		<!-- Main -->
 		<div id="main">
 
-
-			<!-- Featured Post -->
+			<!-- About -->
 			<article class="post featured">
 				<header class="major">
-					<h2 class="fw-light">About Me</h2>
-					<p>An experienced backend developer with nearly 5 years of expertise. Proficient in JVM Stack
-						(Java/Kotlin/Spring) and Microservices architecture. Skilled in developing lightweight user
-						interfaces with Angular and Typescript.<br />
-						I take into consideration the user experience while writing reusable and efficient code. I
-						passionately combine good design, technology, and innovation in all my projects, which I like to
-						accompany from the first idea to release. Currently, I'm focused on the Backend development and
-						extending my focus to Frontend.</p>
+					<h2>About Me</h2>
+					<p>Senior Backend Developer with <strong>5+ years</strong> of expertise building production-grade systems on the JVM stack. Architected microservices powering healthcare HR platforms at Wipro — serving 500+ enterprise clients including PepsiCo, PwC, Starbucks, and Airbnb. Built secure automotive APIs for Volkswagen's Wolfsburg plant. Currently expanding into AI-powered full-stack applications.</p>
 				</header>
-				<a href="#"><img style="border-radius: 50%;" height="300" width="300" src="images/CVs.jpeg"
-						alt="" /></a>
+				<img class="about-photo" height="260" width="260" src="images/CVs.jpeg" alt="Vishesh Dab" />
+
+				<div class="stats-bar">
+					<div class="stat-item">
+						<div class="stat-number">5+</div>
+						<div class="stat-label">Years Experience</div>
+					</div>
+					<div class="stat-item">
+						<div class="stat-number">500+</div>
+						<div class="stat-label">Enterprise Clients</div>
+					</div>
+					<div class="stat-item">
+						<div class="stat-number">2</div>
+						<div class="stat-label">MNCs</div>
+					</div>
+					<div class="stat-item">
+						<div class="stat-number">3+</div>
+						<div class="stat-label">Projects Built</div>
+					</div>
+				</div>
 			</article>
-			<h2 style="font-size: 45px; " class="text-center fw-light">Technologies & Tools</h2>
 
-			<div class="row">
-				<div class="col-2">
-					<img height="50" width="50" src="./images/java-plain.svg" alt="Snow" style="width:100%">
-					<h4 style="text-align: center;" class="text-md text-center">Java</h4>
-				</div>
+			<!-- Technologies -->
+			<div class="section-header">
+				<h2>Technologies &amp; Tools</h2>
+				<p class="section-sub">Backend &nbsp;·&nbsp; Frontend &nbsp;·&nbsp; Database &nbsp;·&nbsp; DevOps</p>
+			</div>
 
-				<div class="col-2">
-					<img height="50" width="50" src="./images/mysql-original.svg" alt="Forest" style="width:100%">
-					<h4 class="text-md text-center">MySQL</h4>
-				</div>
-
-				<div class="col-2">
-					<img height="50" width="50" src="./images/spring-original.svg" alt="Forest" style="width:100%">
-					<h4 class="text-md text-center">Spring</h4>
-				</div>
-
-				<div class="col-2">
-					<img height="50" width="50" src="./images/angular-original.svg" alt="Forest" style="width:100%">
-					<h4 class="text-md text-center">Angular</h4>
-				</div>
-
-				<div class="col-2">
-					<img height="50" width="50" src="./images/typescript-plain.svg" alt="Forest" style="width:100%">
-					<h4 style="text-align: center;" class="text-md text-center">TypeScript</h4>
-				</div>
-
-				<div class="col-2">
-					<img height="50" width="50" src="./images/javascript-plain.svg" alt="Forest" style="width:100%">
-					<h4 class="text-md text-center">JavaScript</h4>
-				</div>
-
-				<div class="col-2">
-					<img height="50" width="50" src="./images/html5-original.svg" alt="Forest" style="width:100%">
-					<h4 style="text-align: center;" class="text-md text-center">HTML5</h4>
+			<div class="skill-row">
+				<div class="skill-row-label">Backend</div>
+				<div class="skills-grid">
+					<div class="skill-item">
+						<img src="./images/java-plain.svg" alt="Java">
+						<span>Java</span>
+					</div>
+					<div class="skill-item">
+						<img src="https://cdn.jsdelivr.net/npm/devicon@2.15.1/icons/kotlin/kotlin-original.svg" alt="Kotlin">
+						<span>Kotlin</span>
+					</div>
+					<div class="skill-item">
+						<img src="./images/spring-original.svg" alt="Spring Boot">
+						<span>Spring Boot</span>
+					</div>
+					<div class="skill-item">
+						<img src="https://cdn.jsdelivr.net/npm/devicon@2.15.1/icons/redis/redis-original.svg" alt="Redis">
+						<span>Redis</span>
+					</div>
+					<div class="skill-item">
+						<img src="https://cdn.jsdelivr.net/npm/devicon@2.15.1/icons/docker/docker-original.svg" alt="Docker">
+						<span>Docker</span>
+					</div>
 				</div>
 			</div>
 
-			<style>
-				@media (max-width: 767px) {
-					h2 {
-						font-size: 36px !important;
-					}
+			<div class="skill-row">
+				<div class="skill-row-label">Frontend</div>
+				<div class="skills-grid">
+					<div class="skill-item">
+						<img src="./images/angular-original.svg" alt="Angular">
+						<span>Angular</span>
+					</div>
+					<div class="skill-item">
+						<img src="https://cdn.jsdelivr.net/npm/devicon@2.15.1/icons/react/react-original.svg" alt="React">
+						<span>React</span>
+					</div>
+					<div class="skill-item">
+						<img src="./images/typescript-plain.svg" alt="TypeScript">
+						<span>TypeScript</span>
+					</div>
+					<div class="skill-item">
+						<img src="./images/javascript-plain.svg" alt="JavaScript">
+						<span>JavaScript</span>
+					</div>
+					<div class="skill-item">
+						<img src="./images/html5-original.svg" alt="HTML5">
+						<span>HTML5</span>
+					</div>
+				</div>
+			</div>
 
-					.col-2 {
-						flex: 0 0 33.333333%;
-						max-width: 33.333333%;
-						text-align: center;
-					}
+			<div class="skill-row">
+				<div class="skill-row-label">Database</div>
+				<div class="skills-grid">
+					<div class="skill-item">
+						<img src="./images/mysql-original.svg" alt="MySQL">
+						<span>MySQL</span>
+					</div>
+					<div class="skill-item">
+						<img src="https://cdn.jsdelivr.net/npm/devicon@2.15.1/icons/mongodb/mongodb-original.svg" alt="MongoDB">
+						<span>MongoDB</span>
+					</div>
+				</div>
+			</div>
 
-					.col-2 h4 {
-						margin-left: 0;
-					}
-				}
-			</style>
-			<h2 style="font-size: 45px; " class="text-center fw-light">Work Experience</h2>
-			<div class="row">
-				<div class="col-12">
-					<h3 class="mb-0">Senior Software Developer</h3>
-					<small class="fw-bold">Wipro</small>
-					<p class="fw-lighter fs-6">
-						• Led the development of RESTful APIs using Spring MVC for a critical healthcare application,
-						enabling seamless HR services. Integrated a video player library, making API requests for video
-						data and displaying a video player popup within the UI. Implemented a promotions feature API
-						leveraging Java streams and lambda expressions to dynamically assign visibility at specific
-						positions in the application. Delivered scalable solutions to 500+ clients, including PepsiCo,
-						PwC, Starbucks, and Airbnb, showcasing expertise in building enterprise‑grade applications. <br>
-						• Utilized Angular HTTP Module with error handling for API communication extending my scope to
-						frontend development. Leverage the internal CSS library to maintain consistent styles across the
-						application.
+			<!-- Work Experience -->
+			<div class="section-header">
+				<h2>Work Experience</h2>
+				<p class="section-sub">Enterprise &nbsp;·&nbsp; Automotive &nbsp;·&nbsp; Healthcare</p>
+			</div>
+
+			<div class="timeline">
+				<div class="timeline-item">
+					<div class="timeline-meta">
+						<h3>Senior Software Developer</h3>
+						<span class="timeline-company">Wipro</span>
+						<span class="timeline-period">2022 – Present</span>
+					</div>
+					<div class="tech-tags">
+						<span class="tech-tag">Java</span>
+						<span class="tech-tag">Spring MVC</span>
+						<span class="tech-tag">Angular</span>
+						<span class="tech-tag">REST APIs</span>
+						<span class="tech-tag">Healthcare</span>
+					</div>
+					<p class="timeline-desc">
+						Led development of RESTful APIs for a critical healthcare HR application using Spring MVC. Integrated a video player library with dynamic API-backed media loading. Engineered a promotions feature using Java streams and lambdas for position-based content visibility. Delivered scalable solutions to <strong>500+ enterprise clients</strong> including PepsiCo, PwC, Starbucks, and Airbnb. Extended scope to frontend with Angular HTTP Module integration.
+					</p>
+				</div>
+
+				<div class="timeline-item">
+					<div class="timeline-meta">
+						<h3>Software Developer</h3>
+						<span class="timeline-company">Volkswagen IT Services</span>
+						<span class="timeline-period">2020 – 2022</span>
+					</div>
+					<div class="tech-tags">
+						<span class="tech-tag">Spring Security</span>
+						<span class="tech-tag">JWT</span>
+						<span class="tech-tag">Redis</span>
+						<span class="tech-tag">MongoDB</span>
+						<span class="tech-tag">Docker</span>
+						<span class="tech-tag">Microservices</span>
+					</div>
+					<p class="timeline-desc">
+						Built APIs for parts delivery approvals and car fault detection at Volkswagen's Wolfsburg plant. Integrated Spring Security with JWT for role-based access control. Leveraged Redis for performance caching. Managed MongoDB for customer and manager orders with compound indexes for optimized queries. Containerized microservices with Docker for consistent deployment.
 					</p>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-12">
-					<h3 class="mb-0">Software Developer</h3>
-					<span class="fw-bold">Volkswagen It Services</span>
-					<p class="fw-lighter fs-6">
-						• Developed APIs for parts delivery approvals and car fault detection at Volkswagen's Wolfsburg
-						plant, integrating Spring Security with JWT for secure access and leveraging Redis for enhanced
-						performance. Implemented Spring Security to fortify RESTful APIs, ensuring robust authentication and authorization mechanisms tailored to user roles and permissions. Utilized JWT for secure
-						user authentication, effectively controlling access to endpoints based on user privileges. <br>
-						• Handled MongoDB database for customer and manager orders. Improved efficiency with JSON‑like
-						documents and compound indexes for faster query processing. Implemented microservices
-						architecture, containerizing each service with Docker for consistent deployment.
-					</p>
-				</div>
+
+			<!-- Projects -->
+			<div class="section-header">
+				<h2>Projects</h2>
+				<p class="section-sub">Open Source &nbsp;·&nbsp; Full-Stack &nbsp;·&nbsp; AI</p>
 			</div>
-			<h2 style="font-size: 45px;" class="text-center fw-light">My Projects</h2>
-			<!-- Posts -->
+
 			<section class="posts">
 				<article>
 					<header>
-						<h3 class="fw-light"><a href="https://github.com/Vishesh-96/IplDashBoardDemoProject">IPL
-								DASHBOARD<br />
-						</h3>
+						<h3><a href="https://github.com/Vishesh-96/AI-Language-Tutor">AI Language Tutor</a></h3>
 					</header>
-					<a href="https://github.com/Vishesh-96/IplDashBoardDemoProject" class="image fit"><img
-							src="images/ipll.jpg" alt="" /></a>
-					<p>This application shows all the team stats, results, losses, wins, and scores of the most popular
-						cricket tournament in India in the past ten years.
-						It uses React as the frontend technology, Spring Boot as the backend, and MySQL for database
-						management.</p>
+					<a href="https://github.com/Vishesh-96/AI-Language-Tutor" class="image fit">
+						<img src="images/bg1.jpg" alt="AI Language Tutor" />
+					</a>
+					<div class="tech-tags">
+						<span class="tech-tag">Next.js</span>
+						<span class="tech-tag">TypeScript</span>
+						<span class="tech-tag">Claude AI</span>
+						<span class="tech-tag">React</span>
+						<span class="tech-tag">TTS</span>
+					</div>
+					<p>AI-powered language learning app with real-time conversational practice, text-to-speech pronunciation, spaced repetition vocabulary review, and adaptive difficulty progression. Built with Next.js and Claude AI for intelligent feedback.</p>
+					<ul class="actions special">
+						<li><a href="https://github.com/Vishesh-96/AI-Language-Tutor" class="button">View</a></li>
+					</ul>
+				</article>
+
+				<article>
+					<header>
+						<h3><a href="https://github.com/Vishesh-96/IplDashBoardDemoProject">IPL Dashboard</a></h3>
+					</header>
+					<a href="https://github.com/Vishesh-96/IplDashBoardDemoProject" class="image fit">
+						<img src="images/ipll.jpg" alt="IPL Dashboard" />
+					</a>
+					<div class="tech-tags">
+						<span class="tech-tag">React</span>
+						<span class="tech-tag">Spring Boot</span>
+						<span class="tech-tag">MySQL</span>
+						<span class="tech-tag">REST API</span>
+					</div>
+					<p>Full-stack cricket statistics app showing team stats, match results, wins/losses, and scores from India's most popular cricket tournament over the past decade.</p>
 					<ul class="actions special">
 						<li><a href="https://github.com/Vishesh-96/IplDashBoardDemoProject" class="button">View</a></li>
 					</ul>
 				</article>
+
 				<article>
 					<header>
-						<h3 class="fw-light"><a href="https://github.com/Vishesh-96/spring-boot-ecommerce-2">E-commerce
-								application
-						</h3>
+						<h3><a href="https://github.com/Vishesh-96/spring-boot-ecommerce-2">E-Commerce Platform</a></h3>
 					</header>
-					<a href="https://github.com/Vishesh-96/spring-boot-ecommerce-2" class="image fit"><img
-							src="images/ec.jpg" alt="" /></a>
-					<p>Demonstrated a web application an e-commerce site using Angular and Spring Boot for the front end
-						and backend respectively and MySQL for database management.
-						Implemented basic functionalities such as displaying products, adding and checking out, and
-						authenticating customers.</p>
+					<a href="https://github.com/Vishesh-96/spring-boot-ecommerce-2" class="image fit">
+						<img src="images/ec.jpg" alt="E-Commerce Application" />
+					</a>
+					<div class="tech-tags">
+						<span class="tech-tag">Angular</span>
+						<span class="tech-tag">Spring Boot</span>
+						<span class="tech-tag">MySQL</span>
+						<span class="tech-tag">JWT Auth</span>
+					</div>
+					<p>Full-stack e-commerce web app with product catalog, shopping cart, checkout flow, and customer authentication. Angular frontend communicating with Spring Boot REST APIs backed by MySQL.</p>
 					<ul class="actions special">
 						<li><a href="https://github.com/Vishesh-96/spring-boot-ecommerce-2" class="button">View</a></li>
 					</ul>
 				</article>
 			</section>
-
-			<!-- Footer -->
-			<footer>
-
-			</footer>
 
 		</div>
 
@@ -208,25 +469,21 @@
 			<section class="split contact">
 				<section>
 					<h3>Phone</h3>
-					<p><a href="#">+91 9563363634</a></p>
+					<p><a href="tel:+919563363634">+91 9563363634</a></p>
 				</section>
 				<section>
 					<h3>Email</h3>
-					<p><a href="#">visheshdab96@gmail.com</a></p>
+					<p><a href="mailto:visheshdab96@gmail.com">visheshdab96@gmail.com</a></p>
 				</section>
 				<section>
-					<h3>Social</h3>
+					<h3>Connect</h3>
 					<ul class="icons alt">
-						<li><a href="https://www.linkedin.com/in/vishesh-dab-955859132/"
-								class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
-						<li><a href="https://github.com/Vishesh-96" class="icon brands alt fa-github"><span
-									class="label">GitHub</span></a></li>
+						<li><a href="https://www.linkedin.com/in/vishesh-dab-955859132/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+						<li><a href="https://github.com/Vishesh-96" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
 					</ul>
 				</section>
 			</section>
 		</footer>
-
-		<!-- Copyright -->
 
 	</div>
 
